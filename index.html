@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <title>MOPCON 2016 抽獎機</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+</head>
+
+<body ng-app="mopcon" ng-controller="MainCtrl as ctrl">
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">MOPCON 2016 抽獎機</a>
+                </div>
+            </div>
+        </nav>
+        <p class="bg-success" style="padding: 15px;font-size: 40px" ng-show="ctrl.msg">{{ ctrl.msg }}</p>
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="file" accept=".xlsx,.xls" onchange="angular.element(this).scope().ctrl.fileChange(this.files)" />
+                    <br/>
+                    <label for="ready_lable" class="control-label">Upload Success, Ready to Lottery!!!</label>
+                    <br>
+                    <button id="get_result" class="btn btn-info" ng-click="ctrl.getResult()">Get Result</button>
+                </div>
+                <div class="col-md-6">
+                    <i style="font-size: 40px" ng-show="ctrl.register_number.length != 0">已經抽了 {{ ctrl.register_number.length }} 個了!!!</i>
+                    <br> 已抽過的序號 : {{ ctrl.register_number | json }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/lodash/lodash.js"></script>
+    <script src="node_modules/xlsx/dist/jszip.js"></script>
+    <script src="node_modules/xlsx/dist/xlsx.js"></script>
+    <script src="js/xlsx-reader.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
