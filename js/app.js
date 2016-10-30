@@ -18,7 +18,7 @@ app.controller('MainCtrl', ['$scope', function MainCtrl($scope) {
         vm.msg = '';
         var random_number = Math.floor((Math.random() * vm.sheet.length));
         var result = vm.sheet[random_number];
-        if (result['Attendance Book Day1'] && result['Attendance Book Day2']) {
+        if (result['Day1'] && result['Day2']) {
             if (vm.random_index.indexOf(random_number) == -1) {
                 console.log('in result: ', result);
                 vm.random_index.push(random_number);
